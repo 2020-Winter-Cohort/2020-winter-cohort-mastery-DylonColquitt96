@@ -1,7 +1,9 @@
 package com.survivingcodingbootcamp.blog;
 
+import com.survivingcodingbootcamp.blog.model.HashTag;
 import com.survivingcodingbootcamp.blog.model.Post;
 import com.survivingcodingbootcamp.blog.model.Topic;
+import com.survivingcodingbootcamp.blog.storage.HashTagStorage;
 import com.survivingcodingbootcamp.blog.storage.PostStorage;
 import com.survivingcodingbootcamp.blog.storage.TopicStorage;
 import org.springframework.boot.CommandLineRunner;
@@ -12,12 +14,14 @@ public class Populator implements CommandLineRunner {
 
     private TopicStorage topicStorage;
     private PostStorage postStorage;
+    private HashTagStorage hashStorage;
 
 
-    public Populator(TopicStorage topicStorage, PostStorage postStorage) {
+    public Populator(TopicStorage topicStorage, PostStorage postStorage, HashTagStorage hashStorage) {
 
         this.topicStorage = topicStorage;
         this.postStorage = postStorage;
+        this.hashStorage = hashStorage;
     }
 
     @Override
@@ -53,6 +57,15 @@ public class Populator implements CommandLineRunner {
         topicStorage.save(topic3);
         Topic topic4 = new Topic("Object Oriented Programming and You");
         topicStorage.save(topic4);
+
+        HashTag hashTag1 = new HashTag("#Java");
+        hashStorage.save(hashTag1);
+        HashTag hashTag2 = new HashTag("#TDD");
+        hashStorage.save(hashTag2);
+        HashTag hashTag3 = new HashTag("#Education");
+        hashStorage.save(hashTag3);
+        HashTag hashTag4 = new HashTag("#Coding");
+        hashStorage.save(hashTag4);
 
     }
 

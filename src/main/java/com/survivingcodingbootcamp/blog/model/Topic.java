@@ -21,6 +21,9 @@ public class Topic {
         this.name = name;
     }
 
+    public Topic() {
+
+    }
 
 
     public Long getId() {

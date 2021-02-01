@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 public class TopicController {
 
     private TopicStorage topicStorage;
-    private PostStorage postStorage;
 
     public TopicController(TopicStorage topicStorage) {
 
@@ -25,9 +24,5 @@ public class TopicController {
         return "single-topic-template";
     }
 
-    @PostMapping("/{id}")
-    public String addPost(@PathVariable Long id, @RequestParam String newPost){
-
-    }
 }
 

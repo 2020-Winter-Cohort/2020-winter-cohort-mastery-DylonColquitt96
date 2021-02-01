@@ -33,9 +33,16 @@
         </section>
         <section>
             <h2>New Post</h2>
-            <form th:action="'/topics/' +${topic.getId()}" method="POST">
-                <label>Enter new Post</label>
-                <input type = "text" name="newPost">
+            <form th:action="'/posts/addPost/' + ${topic.id}" method="POST">
+                <label for="titleBox">Title: </label>
+                <input type = "text" id="titleBox" name="newTitle">
+
+                <label for="author">Author: </label>
+                <input type="text" id="author" name="newAuthor">
+
+                <label for="content">Content: </label>
+                <input type="text" id="content" name="newContent">
+
                 <button type="submit">Add New Post</button>
             </form>
         </section>

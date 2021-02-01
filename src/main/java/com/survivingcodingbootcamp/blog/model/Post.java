@@ -23,7 +23,7 @@ public class Post {
     protected Post() {
     }
 
-    public Post(String title, Topic topic, String content, String author, HashTag ...hashtags) {
+    public Post(String title, String author, Topic topic, String content, HashTag ...hashtags) {
         this.title = title;
         this.topic = topic;
         this.content = content;

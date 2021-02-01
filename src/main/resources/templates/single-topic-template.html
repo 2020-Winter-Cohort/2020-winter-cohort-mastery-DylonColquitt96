@@ -31,6 +31,14 @@
                 </div>
             </nav>
         </section>
+        <section>
+            <h2>New Post</h2>
+            <form th:action="'/topics/' +${topic.getId()}" method="POST">
+                <label>Enter new Post</label>
+                <input type = "text" name="newPost">
+                <button type="submit">Add New Post</button>
+            </form>
+        </section>
     </main>
 </div>
 </body>

@@ -27,14 +27,20 @@
                 <p th:text="${post.content}" class="post__content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloremque blanditiis, aut quae fuga id quis ut. 
                     Eligendi necessitatibus blanditiis officia, odio deleniti natus molestiae fugiat ex quod vel aliquam illum.
                 </p>
+                <p th:text="${post.author}">Author</p>
+                <div th:each="tag:${hashtags}">
+                    <a th:href="'/hashtags/' + ${tag.id}"><p th:text="${tag.name}"></p></a>
+                </div>
+
             </section>
 
             <div>
 
-            <form action="'/hashtags/' +${postId}" method="POST">
+
+            <form th:action="'/hashtags/' +${post.getId()}" method="POST">
                 <label> Enter HashTag</label>
                 <input type="text" name="newHashTag"/>
-                <button type="button">Add HashTag</button>
+                <button type="submit">Add HashTag</button>
             </form>
             </div>
 

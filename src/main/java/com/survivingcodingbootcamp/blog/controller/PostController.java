@@ -18,6 +18,7 @@ public class PostController {
 @GetMapping("/{id}")
     public String displaySinglePost(@PathVariable long id, Model model) {
         model.addAttribute("post", postStorage.retrievePostById(id));
+        model.addAttribute("hashtags",postStorage.retrievePostById(id).getHashTagCollection());
         return "single-post-template";
     }
 

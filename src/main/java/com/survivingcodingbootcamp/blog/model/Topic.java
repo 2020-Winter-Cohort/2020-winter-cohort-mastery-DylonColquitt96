@@ -15,12 +15,13 @@ public class Topic {
     @OneToMany(mappedBy = "topic")
     private Collection<Post> posts;
 
-    protected Topic() {
-    }
+
 
     public Topic(String name) {
         this.name = name;
     }
+
+
 
     public Long getId() {
         return id;

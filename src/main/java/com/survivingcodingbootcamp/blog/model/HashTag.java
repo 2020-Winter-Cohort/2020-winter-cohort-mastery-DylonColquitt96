@@ -27,6 +27,10 @@ public class HashTag {
 
     }
 
+    public Collection<Post> getPosts() {
+        return posts;
+    }
+
     public long getId() {
         return id;
     }

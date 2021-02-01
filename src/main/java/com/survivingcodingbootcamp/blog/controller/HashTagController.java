@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.*;
 public class HashTagController {
 
     private HashTagStorage hashStorage;
+    @Autowired
+    private PostStorage storePost;
+
+
 
 
     public HashTagController(HashTagStorage hashStorage) {
@@ -31,11 +35,14 @@ public class HashTagController {
 
     @GetMapping
     public String displayAllHashtags(Model model) {
-        model.addAttribute("hashtags", hashStorage.retrieveAllHashTags());
+        model.addAttribute("allHashtags", hashStorage.retrieveAllHashTags());
         return "hashTag-template";
     }
 
-    @PostMapping("/hashtags/{postId}")
-    public String addHashtags(){
+    @PostMapping("/{postId}")
+    public String addHashtags(@PathVariable Long postId, @RequestParam String newHashTag){
+        HashTag addNewHashTag = new HashTag(newHashTag, storePost.retrievePostById(postId));
+        hashStorage.save(addNewHashTag);
+        return "redirect:/posts/{postId}";
     }
 }

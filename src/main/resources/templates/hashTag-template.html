@@ -21,8 +21,8 @@
 </header>
 
     <h1>All HashTags</h1>
-    <div th:each="hashtags:${hashtags}">
-        <p th:text="${hashtags.getName()}">default</p>
+    <div th:each="tag:${allHashtags}">
+        <a th:href="'/hashtags/' + ${tag.id}"><p th:text="${tag.name}"></p></a>
     </div>
 
 </body>
